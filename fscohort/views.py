@@ -49,7 +49,11 @@ def student_delete(request,id):
     if request.method == "post":
         student.delete()
         return redirect("list")
+        
+    context= {
+        "student" : student
+    }
 
-    return render(request, "fscohort/student_delete.html")
+    return render(request, "fscohort/student_delete.html", context)
 
 
