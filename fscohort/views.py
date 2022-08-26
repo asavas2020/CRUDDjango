@@ -32,7 +32,7 @@ def student_add(request):
 def student_update(request, id):
     student = Student.objects.get(id = id)
     form = StudentForm(instance = student)
-    if request.method == "post":
+    if request.method == "POST":
         form = StudentForm(request.POST, instance = student)
         if form.is_valid():
             form.save()
@@ -46,7 +46,7 @@ def student_update(request, id):
 
 def student_delete(request,id):
     student = Student.objects.get(id = id)
-    if request.method == "post":
+    if request.method == "POST":
         student.delete()
         return redirect("list")
 
